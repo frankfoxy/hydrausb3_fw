@@ -14,8 +14,8 @@ else
 endif
 
 # Define option(s) defined in pre-processor compiler option(s)
-#DEFINE_OPTS = -DDEBUG=1
-DEFINE_OPTS = 
+DEFINE_OPTS = -DDEBUG=1
+#DEFINE_OPTS = 
 # Optimisation option(s)
 OPTIM_OPTS = -O3
 # Debug option(s)

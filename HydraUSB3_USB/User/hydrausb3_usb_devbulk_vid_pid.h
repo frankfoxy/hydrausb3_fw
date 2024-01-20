@@ -16,11 +16,12 @@ PID dec (hex) | VID dec (hex) | Description of use
 */
 // Default USB Vendor ID
 // Default VID 0x16C0 "Van Ooijen Technische Informatica"
-#define USB_VID_BYTE_MSB (0x16)
-#define USB_VID_BYTE_LSB (0xC0)
+#define USB_VID_BYTE_MSB (0x1A)
+#define USB_VID_BYTE_LSB (0x86)
 #define USB_VID ((USB_VID_BYTE_MSB << 8) | USB_VID_BYTE_LSB)
 // Default USB Product ID
 // Default PID 0x05DC
-#define USB_PID_BYTE_MSB (0x05)
-#define USB_PID_BYTE_LSB (0xDC)
+#define USB_PID_BYTE_MSB (0x55)
+#define USB_PID_BYTE_LSB (0x37)
 #define USB_PID ((USB_PID_BYTE_MSB << 8) | USB_PID_BYTE_LSB)
+

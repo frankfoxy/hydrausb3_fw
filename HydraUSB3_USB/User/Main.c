@@ -19,16 +19,18 @@
 
 #include "hydrausb3_usb_devbulk_vid_pid.h"
 
+#define DEBUG 1
+
 #undef FREQ_SYS
 /* System clock / MCU frequency in Hz */
 #define FREQ_SYS (120000000)
 
 // Note: DEBUG over UART is not required as all logs can be retrieved from USB2/USB3 with USB_CMD_LOGR
 #if(defined DEBUG) // DEBUG=1 to be defined in in Makefile DEFINE_OPTS (Example DEFINE_OPTS = -DDEBUG=1)
+#define UART1_BAUD (1500000)
 //#define UART1_BAUD (115200)
-//#define UART1_BAUD (921600)
 //#define UART1_BAUD (3000000) // Real baud rate 3Mbauds(For Fsys 96MHz or 120MHz) => Requires USB2HS Serial like FTDI C232HM-DDHSL-0
-#define UART1_BAUD (5000000) // Real baud rate is round to 5Mbauds (For Fsys 120MHz) => Requires USB2HS Serial like FTDI C232HM-DDHSL-0
+//#define UART1_BAUD (5000000) // Real baud rate is round to 5Mbauds (For Fsys 120MHz) => Requires USB2HS Serial like FTDI C232HM-DDHSL-0
 #endif
 
 /* Blink time in ms */
@@ -73,6 +75,7 @@ int main()
 #if(defined DEBUG)
 	/* Configure serial debugging for printf()/log_printf()... */
 	UART1_init(UART1_BAUD, FREQ_SYS);
+	bsp_wait_ms_delay(1);
 #endif
 	log_printf("Start\n");
 	log_printf("ChipID(Hex)=%02X\n", R8_CHIP_ID);
@@ -110,7 +113,8 @@ int main()
 	{
 		if( bsp_ubtn() )
 		{
-			blink_ms = BLINK_FAST;
+			//print_dbg();
+			blink_ms = BLINK_USB2;
 			bsp_uled_on();
 			bsp_wait_ms_delay(blink_ms);
 			bsp_uled_off();

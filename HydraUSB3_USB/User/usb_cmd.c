@@ -120,6 +120,7 @@ void usb_cmd_rx(e_usb_type usb_type, uint8_t* rx_usb_dma_buff, uint8_t* tx_usb_d
 		break;
 
 		default:
-			log_printf("CMD UNKN\n");
+			//log_printf("CMD UNKN\n");
+			break;
 	}
 }

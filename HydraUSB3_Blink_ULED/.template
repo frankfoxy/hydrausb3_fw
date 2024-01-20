@@ -2,8 +2,8 @@
 Toolchain=
 Series=
 Description=
-Mcu Type=
-Address=
+Mcu Type=CH56x
+Address=0x00000000
 Target Path=
 Erase All=true
 Program=true
@@ -15,3 +15,5 @@ Reset=true
 Vendor=WCH
 MCU=CH569W
 Link=WCH-Link
+
+CLKSpeed=1
